@@ -1,0 +1,3 @@
+#!/bin/bash
+echo "stop script"
+service tomcat8 stop

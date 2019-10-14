@@ -1,0 +1,19 @@
+version: 0.0 
+os: linux 
+files: 
+  - source: /target/spring-music-1.0.0.war 
+    destination: /var/lib/tomcat/webapps
+hooks: 
+  BeforeInstall:
+    - location: scripts/remove.bash
+  AfterInstall: 
+    - location: scripts/install.bash
+      timeout: 300 
+      runas: root 
+    - location: scripts/start.bash 
+      timeout: 300 
+      runas: root 
+  ApplicationStop: 
+    - location: scripts/stop.bash
+      timeout: 300 
+      runas: root 
